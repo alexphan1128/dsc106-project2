@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Project 2 Report</title>
+        <style>
+            :root {
+                --color-neutral-95: hsl(220 10% 95%);
+                --color-neutral-90: hsl(220 10% 90%);
+                --color-neutral-80: hsl(220 10% 80%);
+                --color-neutral-70: hsl(220 10% 70%);
+                --color-neutral-60: hsl(220 10% 60%);
+                --color-neutral-50: hsl(220 10% 50%);
+                --color-neutral-40: hsl(220 10% 40%);
+                --color-neutral-30: hsl(220 10% 30%);
+                --color-neutral-20: hsl(220 10% 20%);
+                --color-neutral-10: hsl(220 10% 10%);
+            }
+
+            html {
+                font: 100%/1.5 system-ui;
+                counter-reset: figure;
+                background: var(--color-neutral-95);
+                max-width: min(75vw, 80em);
+                margin: 0 auto;
+            }
+
+            /* Headings */
+
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                line-height: 1.1;
+                font-weight: 600;
+                text-wrap: balance;
+            }
+
+            h1,
+            h2 {
+                border-bottom: 1px solid var(--color-neutral-80);
+                padding-bottom: 0.2em;
+            }
+
+            h1 {
+                margin-block: 1em 0.5rem;
+                font-size: clamp(2.5em, 150% + 2vh + 2vw, 10vmin);
+                font-weight: 800;
+
+                small {
+                    display: block;
+                    width: fit-content;
+                    padding: 0.2em 0.5em;
+                    margin-inline: auto;
+                    color: white;
+                    background: var(--color-neutral-40);
+                    font-size: 40%;
+                    text-transform: uppercase;
+                    white-space: nowrap;
+                }
+            }
+
+            h2 {
+                font-size: 180%;
+                color: var(--color-neutral-30);
+            }
+
+            h3 {
+                font-size: 130%;
+            }
+
+            /* Lists */
+
+            ul,
+            ol {
+                padding-inline-start: 2em;
+            }
+
+            li {
+                &::marker {
+                    color: var(--color-neutral-40);
+                }
+
+                + li {
+                    margin-top: 0.2em;
+                }
+            }
+
+            /* Sectioning elements */
+
+            header {
+                padding-block: 1em;
+                text-align: center;
+            }
+
+            main {
+                background: white;
+                color: var(--color-neutral-20);
+                border-radius: 1rem;
+                padding: 0.1rem 2rem;
+            }
+
+            /* Figures */
+
+            figure {
+                margin: 1em 0;
+                padding: 0.5rem;
+                margin-inline: -0.5em;
+                border: 1px solid var(--color-neutral-80);
+                box-shadow: 0 0.1em 0.2em var(--color-neutral-95);
+                text-align: center;
+                background: white;
+
+                > figcaption {
+                    font: 500 75% var(--font-sans);
+                    background: var(--color-neutral-95);
+                    padding: 0.5rem;
+                    margin: -0.5rem;
+                    margin-top: 0.5rem;
+                    counter-increment: figure;
+                    text-align: left;
+
+                    &::before {
+                        content: "Figure " counter(figure) ": ";
+                        font-weight: bold;
+                        color: var(--color-neutral-40);
+                    }
+
+                    a:not(:hover, :focus, :active) {
+                        color: inherit;
+                        text-decoration: underline;
+                        text-decoration-color: color-mix(
+                            in lab,
+                            currentColor,
+                            transparent 70%
+                        );
+                    }
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <h1>
+                <small>Project 2</small>
+                Persuasive or Deceptive Visualization?
+            </h1>
+
+            <p><strong>MEMBER 1 FULL NAME</strong> — <em>member1@ucsd.edu</em><br />
+            <strong>MEMBER 2 FULL NAME</strong> — <em>member2@ucsd.edu</em><br />
+            <strong>MEMBER 3 FULL NAME</strong> — <em>member3@ucsd.edu</em></p>
+        </header>
+
+        <main>
+            <h2>Proposition: Women's political representation is improving rapidly.</h2>
+
+            <section>
+                <h3>FOR the Proposition</h3>
+
+                <figure>
+                    <img src="pro_1_doubled.png" alt="Line chart of the world share of parliament seats held by women, rising from 11.7% in 1997 to 25.6% in 2020, on a y-axis starting at 11%, with a large +119% callout." style="max-width: 100%; height: auto" />
+                    <figcaption>Worldwide, the share of national parliament seats held by women more than doubled between 1997 and 2020. Data: World Bank, Proportion of seats held by women in national parliaments (%).</figcaption>
+                </figure>
+
+                <p>Design Decisions and Rationale:</p>
+
+                <ul>
+                    <li><strong>Truncated y-axis (11%–26.5%).</strong> (Score: −2) Starting the axis just below the first value stretches a 14-point rise across the full height of the chart, so a slow, steady climb looks steep. The axis is labeled, so the trick is technically visible, but few readers check where an axis starts.</li>
+                    <li><strong>Relative change (+119%) as the headline.</strong> (Score: −1.5) We reported percent growth instead of the 14-percentage-point increase. Both are correct, but percent growth on a small starting value always sounds dramatic, and we made it the largest text on the chart.</li>
+                    <li><strong>"More women in parliaments" wording.</strong> (Score: −2) The callout describes a change in <em>share</em> as if it were a change in the <em>number</em> of women, which invites a claim the data doesn't support.</li>
+                    <li><strong>Filled area and a single bold color.</strong> (Score: −0.5) The shaded area and heavy stroke make the trend feel substantial and continuous. This is persuasive styling rather than a distortion of the data.</li>
+                    <li><strong>Accurate endpoints and source.</strong> (Score: +1) We labeled the true 1997 and 2020 values and cited the source, so a careful reader can recover the real 14-point change.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>AGAINST the Proposition</h3>
+
+                <figure>
+                    <img src="con_1_parity_projection.png" alt="Line chart of the same world data on a 0–100% axis with a dashed 50% parity line; a dotted straight-line projection reaches parity around 2062." style="max-width: 100%; height: auto" />
+                    <figcaption>At the 1997–2020 pace of about 0.6 percentage points per year, women would not hold half of the world's parliament seats until around 2062. Data: World Bank, Proportion of seats held by women in national parliaments (%).</figcaption>
+                </figure>
+
+                <p>Design Decisions and Rationale:</p>
+
+                <ul>
+                    <li><strong>Full 0–100% y-axis.</strong> (Score: +1) Showing the whole range is the conventional, honest choice for a percentage. We chose it on purpose, though, because the empty space makes real growth look flat.</li>
+                    <li><strong>A 50% parity reference line.</strong> (Score: +1) Parity is a reasonable benchmark, but it also sets the bar for what counts as "enough" and keeps the line looking far from the goal.</li>
+                    <li><strong>Straight-line projection to about 2062.</strong> (Score: −1) We fit a linear trend to 1997–2020 and extended it 40 years, assuming the pace never speeds up through new quotas or reforms. The dotted style marks it as a projection, but the "40 years" headline presents it as a fact.</li>
+                    <li><strong>Minimizing language ("only 1 in 4," "barely half a point").</strong> (Score: −1) The subtitle describes accurate numbers with words that make them sound small. The growth rate is about 0.58 points per year, so "barely half a point" rounds down in a direction that helps our side.</li>
+                    <li><strong>Stretched time axis.</strong> (Score: −0.5) Extending the x-axis to 2066 squeezes the 23 years of real data into the left third of the chart, so most of what readers see is the projection.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Final Reflection</h2>
+
+                <p>[DRAFT: rewrite in your group's own words.] We started by looking for an indicator with a clear trend that could honestly be described in two different ways. Women's share of parliament seats worked well because the data itself is simple: a steady climb from about 12% to 26% over 23 years. Almost nothing about the data changed between our two charts. The same line became evidence of rapid progress or of a stalled one depending on the axis range, whether we described change in percent or in percentage points, and which benchmark we put next to it.</p>
+
+                <p>Our definition of an ethical visualization is one that lets a reader reach the conclusion the data supports, even if the designer has a point of view. Every chart makes framing choices, and choices like the parity line or a full 0–100% axis are persuasive without being misleading, because they add context the reader can judge. A chart becomes deceptive when it depends on the reader <em>not</em> noticing something, such as a truncated axis, a percent change presented as a head count, or a projection presented as a certainty.</p>
+
+                <p>Where we draw the line: emphasis and framing are acceptable when they are visible and the underlying numbers stay accurate, and they become misleading when the visual impression contradicts what the labeled numbers say. By that standard our FOR chart crossed the line more often than our AGAINST chart, which matches our design-decision scores. The exercise made us more skeptical of headline numbers like "+119%" and more likely to check axis ranges before trusting a trend.</p>
+            </section>
+        </main>
+</body>
+</html>
